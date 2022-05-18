@@ -17,6 +17,11 @@
 		71FF8C27282C8DA400B6DBD1 /* AppRootInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71FF8C24282C8DA400B6DBD1 /* AppRootInteractor.swift */; };
 		71FF8C29282C8E8E00B6DBD1 /* RootTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71FF8C28282C8E8E00B6DBD1 /* RootTabBarController.swift */; };
 		71FF8C2B282C8EBC00B6DBD1 /* AppRootComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71FF8C2A282C8EBC00B6DBD1 /* AppRootComponent.swift */; };
+		DD0A05622835053400CF657E /* TJToDoListRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD0A055E2835053400CF657E /* TJToDoListRouter.swift */; };
+		DD0A05632835053400CF657E /* TJToDoListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD0A055F2835053400CF657E /* TJToDoListViewController.swift */; };
+		DD0A05642835053400CF657E /* TJToDoListBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD0A05602835053400CF657E /* TJToDoListBuilder.swift */; };
+		DD0A05652835053400CF657E /* TJToDoListInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD0A05612835053400CF657E /* TJToDoListInteractor.swift */; };
+		DD0A05682835077E00CF657E /* RIBs+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD0A05672835077E00CF657E /* RIBs+Utils.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -31,6 +36,11 @@
 		71FF8C24282C8DA400B6DBD1 /* AppRootInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppRootInteractor.swift; sourceTree = "<group>"; };
 		71FF8C28282C8E8E00B6DBD1 /* RootTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootTabBarController.swift; sourceTree = "<group>"; };
 		71FF8C2A282C8EBC00B6DBD1 /* AppRootComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppRootComponent.swift; sourceTree = "<group>"; };
+		DD0A055E2835053400CF657E /* TJToDoListRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TJToDoListRouter.swift; sourceTree = "<group>"; };
+		DD0A055F2835053400CF657E /* TJToDoListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TJToDoListViewController.swift; sourceTree = "<group>"; };
+		DD0A05602835053400CF657E /* TJToDoListBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TJToDoListBuilder.swift; sourceTree = "<group>"; };
+		DD0A05612835053400CF657E /* TJToDoListInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TJToDoListInteractor.swift; sourceTree = "<group>"; };
+		DD0A05672835077E00CF657E /* RIBs+Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "RIBs+Utils.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -65,6 +75,8 @@
 		71FF8C06282C891500B6DBD1 /* RIBsTestApp */ = {
 			isa = PBXGroup;
 			children = (
+				DD0A05662835075D00CF657E /* Utils */,
+				DD0A055D2835052500CF657E /* TJToDoList */,
 				71FF8C21282C8D7F00B6DBD1 /* AppRoot */,
 				71FF8C1B282C8C0F00B6DBD1 /* AppDelegate */,
 				71FF8C10282C891800B6DBD1 /* Assets.xcassets */,
@@ -100,6 +112,25 @@
 			children = (
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		DD0A055D2835052500CF657E /* TJToDoList */ = {
+			isa = PBXGroup;
+			children = (
+				DD0A055E2835053400CF657E /* TJToDoListRouter.swift */,
+				DD0A055F2835053400CF657E /* TJToDoListViewController.swift */,
+				DD0A05602835053400CF657E /* TJToDoListBuilder.swift */,
+				DD0A05612835053400CF657E /* TJToDoListInteractor.swift */,
+			);
+			path = TJToDoList;
+			sourceTree = "<group>";
+		};
+		DD0A05662835075D00CF657E /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				DD0A05672835077E00CF657E /* RIBs+Utils.swift */,
+			);
+			path = Utils;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -180,10 +211,15 @@
 			files = (
 				71FF8C2B282C8EBC00B6DBD1 /* AppRootComponent.swift in Sources */,
 				71FF8C25282C8DA400B6DBD1 /* AppRootRouter.swift in Sources */,
+				DD0A05622835053400CF657E /* TJToDoListRouter.swift in Sources */,
+				DD0A05682835077E00CF657E /* RIBs+Utils.swift in Sources */,
+				DD0A05642835053400CF657E /* TJToDoListBuilder.swift in Sources */,
+				DD0A05632835053400CF657E /* TJToDoListViewController.swift in Sources */,
 				71FF8C29282C8E8E00B6DBD1 /* RootTabBarController.swift in Sources */,
 				71FF8C1D282C8C2000B6DBD1 /* AppComponent.swift in Sources */,
 				71FF8C27282C8DA400B6DBD1 /* AppRootInteractor.swift in Sources */,
 				71FF8C08282C891500B6DBD1 /* AppDelegate.swift in Sources */,
+				DD0A05652835053400CF657E /* TJToDoListInteractor.swift in Sources */,
 				71FF8C26282C8DA400B6DBD1 /* AppRootBuilder.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -329,7 +365,7 @@
 				INFOPLIST_FILE = RIBsTestApp/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -341,7 +377,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -356,7 +392,7 @@
 				INFOPLIST_FILE = RIBsTestApp/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -368,7 +404,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
