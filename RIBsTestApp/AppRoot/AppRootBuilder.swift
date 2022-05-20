@@ -23,23 +23,20 @@ final class AppRootBuilder: Builder<AppRootDependency>, AppRootBuildable {
     
     func build() -> LaunchRouting {
         let tabBar = RootTabBarController()
+        
         let component = AppRootComponent(
             dependency: dependency,
             rootViewController: tabBar
         )
         
-//        let tabOneHome = tabOneHomeBuilder(dependency: component)
-//        let tabTwoHome = tabTwoHomeBuilder(dependency: component)
-//        let tabThreeHome = tabThreeHomeBuilder(dependency: component)
-        
         let interactor = AppRootInteractor(presenter: tabBar)
+        
+        let tjToDoList = TJToDoListBuilder(dependency: component)
         
         let router = AppRootRouter(
             interactor: interactor,
-            viewController: tabBar
-            // tabOneHome: tabOneHome,
-            // tabTwoHome: tabTwoHome,
-            // tabThreeHome: tabThreeHome
+            viewController: tabBar,
+            tjToDoList: tjToDoList
         )
         
         return router
