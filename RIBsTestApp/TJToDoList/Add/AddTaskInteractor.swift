@@ -1,33 +1,33 @@
 //
-//  TJToDoListInteractor.swift
+//  AddTaskInteractor.swift
 //  RIBsTestApp
 //
-//  Created by 정태준 on 2022/05/18.
+//  Created by 정태준 on 2022/05/23.
 //
 
 import ModernRIBs
 
-protocol TJToDoListRouting: ViewableRouting {
+protocol AddTaskRouting: ViewableRouting {
     // TODO: Declare methods the interactor can invoke to manage sub-tree via the router.
 }
 
-protocol TJToDoListPresentable: Presentable {
-    var listener: TJToDoListPresentableListener? { get set }
+protocol AddTaskPresentable: Presentable {
+    var listener: AddTaskPresentableListener? { get set }
     // TODO: Declare methods the interactor can invoke the presenter to present data.
 }
 
-protocol TJToDoListListener: AnyObject {
+protocol AddTaskListener: AnyObject {
     // TODO: Declare methods the interactor can invoke to communicate with other RIBs.
 }
 
-final class TJToDoListInteractor: PresentableInteractor<TJToDoListPresentable>, TJToDoListInteractable, TJToDoListPresentableListener {
+final class AddTaskInteractor: PresentableInteractor<AddTaskPresentable>, AddTaskInteractable, AddTaskPresentableListener {
 
-    weak var router: TJToDoListRouting?
-    weak var listener: TJToDoListListener?
+    weak var router: AddTaskRouting?
+    weak var listener: AddTaskListener?
 
     // TODO: Add additional dependencies to constructor. Do not perform any logic
     // in constructor.
-    override init(presenter: TJToDoListPresentable) {
+    override init(presenter: AddTaskPresentable) {
         super.init(presenter: presenter)
         presenter.listener = self
     }

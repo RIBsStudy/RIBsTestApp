@@ -22,6 +22,15 @@
 		DD0A05642835053400CF657E /* TJToDoListBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD0A05602835053400CF657E /* TJToDoListBuilder.swift */; };
 		DD0A05652835053400CF657E /* TJToDoListInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD0A05612835053400CF657E /* TJToDoListInteractor.swift */; };
 		DD0A05682835077E00CF657E /* RIBs+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD0A05672835077E00CF657E /* RIBs+Utils.swift */; };
+		DD0A056A283528E800CF657E /* ToDoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD0A0569283528E800CF657E /* ToDoCell.swift */; };
+		DD0A056C2835398700CF657E /* UITableView+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD0A056B2835398700CF657E /* UITableView+Utils.swift */; };
+		DD0A057128353B3600CF657E /* ToDoListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD0A057028353B3600CF657E /* ToDoListViewModel.swift */; };
+		DD0A057328353C4200CF657E /* Array+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD0A057228353C4200CF657E /* Array+Utils.swift */; };
+		DDD304DF283BC34100C8804B /* UIView+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDD304DE283BC34100C8804B /* UIView+Utils.swift */; };
+		DDD304E7283BCE3E00C8804B /* AddTaskRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDD304E3283BCE3E00C8804B /* AddTaskRouter.swift */; };
+		DDD304E8283BCE3E00C8804B /* AddTaskViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDD304E4283BCE3E00C8804B /* AddTaskViewController.swift */; };
+		DDD304E9283BCE3E00C8804B /* AddTaskBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDD304E5283BCE3E00C8804B /* AddTaskBuilder.swift */; };
+		DDD304EA283BCE3E00C8804B /* AddTaskInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDD304E6283BCE3E00C8804B /* AddTaskInteractor.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -41,6 +50,15 @@
 		DD0A05602835053400CF657E /* TJToDoListBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TJToDoListBuilder.swift; sourceTree = "<group>"; };
 		DD0A05612835053400CF657E /* TJToDoListInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TJToDoListInteractor.swift; sourceTree = "<group>"; };
 		DD0A05672835077E00CF657E /* RIBs+Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "RIBs+Utils.swift"; sourceTree = "<group>"; };
+		DD0A0569283528E800CF657E /* ToDoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToDoCell.swift; sourceTree = "<group>"; };
+		DD0A056B2835398700CF657E /* UITableView+Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableView+Utils.swift"; sourceTree = "<group>"; };
+		DD0A057028353B3600CF657E /* ToDoListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToDoListViewModel.swift; sourceTree = "<group>"; };
+		DD0A057228353C4200CF657E /* Array+Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Array+Utils.swift"; sourceTree = "<group>"; };
+		DDD304DE283BC34100C8804B /* UIView+Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Utils.swift"; sourceTree = "<group>"; };
+		DDD304E3283BCE3E00C8804B /* AddTaskRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTaskRouter.swift; sourceTree = "<group>"; };
+		DDD304E4283BCE3E00C8804B /* AddTaskViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTaskViewController.swift; sourceTree = "<group>"; };
+		DDD304E5283BCE3E00C8804B /* AddTaskBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTaskBuilder.swift; sourceTree = "<group>"; };
+		DDD304E6283BCE3E00C8804B /* AddTaskInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTaskInteractor.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -117,10 +135,9 @@
 		DD0A055D2835052500CF657E /* TJToDoList */ = {
 			isa = PBXGroup;
 			children = (
-				DD0A055E2835053400CF657E /* TJToDoListRouter.swift */,
-				DD0A055F2835053400CF657E /* TJToDoListViewController.swift */,
-				DD0A05602835053400CF657E /* TJToDoListBuilder.swift */,
-				DD0A05612835053400CF657E /* TJToDoListInteractor.swift */,
+				DDD304E0283BCE1900C8804B /* Add */,
+				DD0A056F28353AFF00CF657E /* Home */,
+				DD0A056D28353AF100CF657E /* Models */,
 			);
 			path = TJToDoList;
 			sourceTree = "<group>";
@@ -129,8 +146,42 @@
 			isa = PBXGroup;
 			children = (
 				DD0A05672835077E00CF657E /* RIBs+Utils.swift */,
+				DD0A056B2835398700CF657E /* UITableView+Utils.swift */,
+				DD0A057228353C4200CF657E /* Array+Utils.swift */,
+				DDD304DE283BC34100C8804B /* UIView+Utils.swift */,
 			);
 			path = Utils;
+			sourceTree = "<group>";
+		};
+		DD0A056D28353AF100CF657E /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				DD0A057028353B3600CF657E /* ToDoListViewModel.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		DD0A056F28353AFF00CF657E /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				DD0A055E2835053400CF657E /* TJToDoListRouter.swift */,
+				DD0A055F2835053400CF657E /* TJToDoListViewController.swift */,
+				DD0A05602835053400CF657E /* TJToDoListBuilder.swift */,
+				DD0A05612835053400CF657E /* TJToDoListInteractor.swift */,
+				DD0A0569283528E800CF657E /* ToDoCell.swift */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
+		DDD304E0283BCE1900C8804B /* Add */ = {
+			isa = PBXGroup;
+			children = (
+				DDD304E3283BCE3E00C8804B /* AddTaskRouter.swift */,
+				DDD304E4283BCE3E00C8804B /* AddTaskViewController.swift */,
+				DDD304E5283BCE3E00C8804B /* AddTaskBuilder.swift */,
+				DDD304E6283BCE3E00C8804B /* AddTaskInteractor.swift */,
+			);
+			path = Add;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -210,16 +261,25 @@
 			buildActionMask = 2147483647;
 			files = (
 				71FF8C2B282C8EBC00B6DBD1 /* AppRootComponent.swift in Sources */,
+				DD0A056A283528E800CF657E /* ToDoCell.swift in Sources */,
 				71FF8C25282C8DA400B6DBD1 /* AppRootRouter.swift in Sources */,
+				DDD304E8283BCE3E00C8804B /* AddTaskViewController.swift in Sources */,
 				DD0A05622835053400CF657E /* TJToDoListRouter.swift in Sources */,
 				DD0A05682835077E00CF657E /* RIBs+Utils.swift in Sources */,
 				DD0A05642835053400CF657E /* TJToDoListBuilder.swift in Sources */,
 				DD0A05632835053400CF657E /* TJToDoListViewController.swift in Sources */,
+				DD0A057328353C4200CF657E /* Array+Utils.swift in Sources */,
 				71FF8C29282C8E8E00B6DBD1 /* RootTabBarController.swift in Sources */,
+				DDD304E7283BCE3E00C8804B /* AddTaskRouter.swift in Sources */,
+				DDD304EA283BCE3E00C8804B /* AddTaskInteractor.swift in Sources */,
 				71FF8C1D282C8C2000B6DBD1 /* AppComponent.swift in Sources */,
+				DD0A057128353B3600CF657E /* ToDoListViewModel.swift in Sources */,
 				71FF8C27282C8DA400B6DBD1 /* AppRootInteractor.swift in Sources */,
 				71FF8C08282C891500B6DBD1 /* AppDelegate.swift in Sources */,
+				DDD304DF283BC34100C8804B /* UIView+Utils.swift in Sources */,
+				DD0A056C2835398700CF657E /* UITableView+Utils.swift in Sources */,
 				DD0A05652835053400CF657E /* TJToDoListInteractor.swift in Sources */,
+				DDD304E9283BCE3E00C8804B /* AddTaskBuilder.swift in Sources */,
 				71FF8C26282C8DA400B6DBD1 /* AppRootBuilder.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
