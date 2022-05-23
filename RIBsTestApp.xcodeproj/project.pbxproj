@@ -7,6 +7,15 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		714B48BC283BBEDE00B08739 /* ImhoTodoHomeRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 714B48B8283BBEDE00B08739 /* ImhoTodoHomeRouter.swift */; };
+		714B48BD283BBEDE00B08739 /* ImhoTodoHomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 714B48B9283BBEDE00B08739 /* ImhoTodoHomeViewController.swift */; };
+		714B48BE283BBEDE00B08739 /* ImhoTodoHomeBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 714B48BA283BBEDE00B08739 /* ImhoTodoHomeBuilder.swift */; };
+		714B48BF283BBEDE00B08739 /* ImhoTodoHomeInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 714B48BB283BBEDE00B08739 /* ImhoTodoHomeInteractor.swift */; };
+		714B48C1283BC1BE00B08739 /* ImhoTodoListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 714B48C0283BC1BE00B08739 /* ImhoTodoListCell.swift */; };
+		714B48CF283BC7CB00B08739 /* ImhoTodoNewItemRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 714B48CB283BC7CB00B08739 /* ImhoTodoNewItemRouter.swift */; };
+		714B48D0283BC7CB00B08739 /* ImhoTodoNewItemViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 714B48CC283BC7CB00B08739 /* ImhoTodoNewItemViewController.swift */; };
+		714B48D1283BC7CB00B08739 /* ImhoTodoNewItemBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 714B48CD283BC7CB00B08739 /* ImhoTodoNewItemBuilder.swift */; };
+		714B48D2283BC7CB00B08739 /* ImhoTodoNewItemInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 714B48CE283BC7CB00B08739 /* ImhoTodoNewItemInteractor.swift */; };
 		71FF8C08282C891500B6DBD1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71FF8C07282C891500B6DBD1 /* AppDelegate.swift */; };
 		71FF8C11282C891800B6DBD1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 71FF8C10282C891800B6DBD1 /* Assets.xcassets */; };
 		71FF8C14282C891800B6DBD1 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 71FF8C12282C891800B6DBD1 /* LaunchScreen.storyboard */; };
@@ -25,6 +34,15 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		714B48B8283BBEDE00B08739 /* ImhoTodoHomeRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImhoTodoHomeRouter.swift; sourceTree = "<group>"; };
+		714B48B9283BBEDE00B08739 /* ImhoTodoHomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImhoTodoHomeViewController.swift; sourceTree = "<group>"; };
+		714B48BA283BBEDE00B08739 /* ImhoTodoHomeBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImhoTodoHomeBuilder.swift; sourceTree = "<group>"; };
+		714B48BB283BBEDE00B08739 /* ImhoTodoHomeInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImhoTodoHomeInteractor.swift; sourceTree = "<group>"; };
+		714B48C0283BC1BE00B08739 /* ImhoTodoListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImhoTodoListCell.swift; sourceTree = "<group>"; };
+		714B48CB283BC7CB00B08739 /* ImhoTodoNewItemRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImhoTodoNewItemRouter.swift; sourceTree = "<group>"; };
+		714B48CC283BC7CB00B08739 /* ImhoTodoNewItemViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImhoTodoNewItemViewController.swift; sourceTree = "<group>"; };
+		714B48CD283BC7CB00B08739 /* ImhoTodoNewItemBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImhoTodoNewItemBuilder.swift; sourceTree = "<group>"; };
+		714B48CE283BC7CB00B08739 /* ImhoTodoNewItemInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImhoTodoNewItemInteractor.swift; sourceTree = "<group>"; };
 		71FF8C04282C891500B6DBD1 /* RIBsTestApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RIBsTestApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		71FF8C07282C891500B6DBD1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		71FF8C10282C891800B6DBD1 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -55,6 +73,30 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		714B48AF283BBDF300B08739 /* ImhoTodoHome */ = {
+			isa = PBXGroup;
+			children = (
+				714B48B8283BBEDE00B08739 /* ImhoTodoHomeRouter.swift */,
+				714B48B9283BBEDE00B08739 /* ImhoTodoHomeViewController.swift */,
+				714B48BA283BBEDE00B08739 /* ImhoTodoHomeBuilder.swift */,
+				714B48BB283BBEDE00B08739 /* ImhoTodoHomeInteractor.swift */,
+				714B48C0283BC1BE00B08739 /* ImhoTodoListCell.swift */,
+				714B48C2283BC58100B08739 /* ImhoTodoNewItem */,
+			);
+			path = ImhoTodoHome;
+			sourceTree = "<group>";
+		};
+		714B48C2283BC58100B08739 /* ImhoTodoNewItem */ = {
+			isa = PBXGroup;
+			children = (
+				714B48CB283BC7CB00B08739 /* ImhoTodoNewItemRouter.swift */,
+				714B48CC283BC7CB00B08739 /* ImhoTodoNewItemViewController.swift */,
+				714B48CD283BC7CB00B08739 /* ImhoTodoNewItemBuilder.swift */,
+				714B48CE283BC7CB00B08739 /* ImhoTodoNewItemInteractor.swift */,
+			);
+			path = ImhoTodoNewItem;
+			sourceTree = "<group>";
+		};
 		71FF8BFB282C891500B6DBD1 = {
 			isa = PBXGroup;
 			children = (
@@ -75,6 +117,7 @@
 		71FF8C06282C891500B6DBD1 /* RIBsTestApp */ = {
 			isa = PBXGroup;
 			children = (
+				714B48AF283BBDF300B08739 /* ImhoTodoHome */,
 				DD0A05662835075D00CF657E /* Utils */,
 				DD0A055D2835052500CF657E /* TJToDoList */,
 				71FF8C21282C8D7F00B6DBD1 /* AppRoot */,
@@ -209,18 +252,27 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				714B48BE283BBEDE00B08739 /* ImhoTodoHomeBuilder.swift in Sources */,
 				71FF8C2B282C8EBC00B6DBD1 /* AppRootComponent.swift in Sources */,
 				71FF8C25282C8DA400B6DBD1 /* AppRootRouter.swift in Sources */,
+				714B48D0283BC7CB00B08739 /* ImhoTodoNewItemViewController.swift in Sources */,
 				DD0A05622835053400CF657E /* TJToDoListRouter.swift in Sources */,
 				DD0A05682835077E00CF657E /* RIBs+Utils.swift in Sources */,
+				714B48D1283BC7CB00B08739 /* ImhoTodoNewItemBuilder.swift in Sources */,
 				DD0A05642835053400CF657E /* TJToDoListBuilder.swift in Sources */,
 				DD0A05632835053400CF657E /* TJToDoListViewController.swift in Sources */,
+				714B48D2283BC7CB00B08739 /* ImhoTodoNewItemInteractor.swift in Sources */,
+				714B48CF283BC7CB00B08739 /* ImhoTodoNewItemRouter.swift in Sources */,
 				71FF8C29282C8E8E00B6DBD1 /* RootTabBarController.swift in Sources */,
 				71FF8C1D282C8C2000B6DBD1 /* AppComponent.swift in Sources */,
+				714B48BD283BBEDE00B08739 /* ImhoTodoHomeViewController.swift in Sources */,
+				714B48BC283BBEDE00B08739 /* ImhoTodoHomeRouter.swift in Sources */,
 				71FF8C27282C8DA400B6DBD1 /* AppRootInteractor.swift in Sources */,
 				71FF8C08282C891500B6DBD1 /* AppDelegate.swift in Sources */,
 				DD0A05652835053400CF657E /* TJToDoListInteractor.swift in Sources */,
+				714B48BF283BBEDE00B08739 /* ImhoTodoHomeInteractor.swift in Sources */,
 				71FF8C26282C8DA400B6DBD1 /* AppRootBuilder.swift in Sources */,
+				714B48C1283BC1BE00B08739 /* ImhoTodoListCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

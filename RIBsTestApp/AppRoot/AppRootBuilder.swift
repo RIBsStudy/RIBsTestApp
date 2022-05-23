@@ -32,11 +32,13 @@ final class AppRootBuilder: Builder<AppRootDependency>, AppRootBuildable {
         let interactor = AppRootInteractor(presenter: tabBar)
         
         let tjToDoList = TJToDoListBuilder(dependency: component)
+        let imhoTodoHome = ImhoTodoHomeBuilder(dependency: component)
         
         let router = AppRootRouter(
             interactor: interactor,
             viewController: tabBar,
-            tjToDoList: tjToDoList
+            tjToDoList: tjToDoList,
+            imhoTodoHome: imhoTodoHome
         )
         
         return router

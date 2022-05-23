@@ -9,7 +9,8 @@ import Foundation
 import ModernRIBs
 
 final class AppRootComponent: Component<AppRootDependency>,
-                              TJToDoListDependency {
+                              TJToDoListDependency,
+                              ImhoTodoHomeDependency {
     
   private let rootViewController: ViewControllable
   
