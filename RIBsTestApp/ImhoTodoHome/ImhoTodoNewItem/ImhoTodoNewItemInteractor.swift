@@ -6,6 +6,7 @@
 //
 
 import ModernRIBs
+import Foundation
 
 protocol ImhoTodoNewItemRouting: ViewableRouting {
     // TODO: Declare methods the interactor can invoke to manage sub-tree via the router.
@@ -18,6 +19,7 @@ protocol ImhoTodoNewItemPresentable: Presentable {
 
 protocol ImhoTodoNewItemListener: AnyObject {
     // TODO: Declare methods the interactor can invoke to communicate with other RIBs.
+    func doneWithNewItem(title: String, description: String, date: Date)
 }
 
 final class ImhoTodoNewItemInteractor: PresentableInteractor<ImhoTodoNewItemPresentable>, ImhoTodoNewItemInteractable, ImhoTodoNewItemPresentableListener {
@@ -40,5 +42,9 @@ final class ImhoTodoNewItemInteractor: PresentableInteractor<ImhoTodoNewItemPres
     override func willResignActive() {
         super.willResignActive()
         // TODO: Pause any business logic.
+    }
+    
+    func doneButtonTapped(title: String, description: String, date: Date) {
+        listener?.doneWithNewItem(title: title, description: description, date: date)
     }
 }

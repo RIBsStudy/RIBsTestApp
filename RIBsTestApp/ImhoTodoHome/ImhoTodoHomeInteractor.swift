@@ -6,15 +6,18 @@
 //
 
 import ModernRIBs
+import Foundation
 
 protocol ImhoTodoHomeRouting: ViewableRouting {
     // TODO: Declare methods the interactor can invoke to manage sub-tree via the router.
     func attachTodoNewItem()
+    func detachTodoNewItem()
 }
 
 protocol ImhoTodoHomePresentable: Presentable {
     var listener: ImhoTodoHomePresentableListener? { get set }
     // TODO: Declare methods the interactor can invoke the presenter to present data.
+    func update(with: ImhoTodoItemPresentationModel)
 }
 
 protocol ImhoTodoHomeListener: AnyObject {
@@ -47,5 +50,26 @@ final class ImhoTodoHomeInteractor: PresentableInteractor<ImhoTodoHomePresentabl
     
     func showNewItem() {
         router?.attachTodoNewItem()
+    }
+    
+    func doneWithNewItem(title: String, description: String, date: Date) {
+        guard !title.isEmpty else {
+            router?.detachTodoNewItem()
+            return
+        }
+
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "YYYY.MM.dd"
+        
+        let dateString = dateFormatter.string(from: date)
+        
+        let data = ImhoTodoItemPresentationModel(
+            title: title,
+            description: description,
+            date: dateString, status: .todo
+        )
+        
+        presenter.update(with: data)
+        router?.detachTodoNewItem()
     }
 }
