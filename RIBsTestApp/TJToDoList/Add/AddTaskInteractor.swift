@@ -15,12 +15,12 @@ protocol AddTaskPresentable: Presentable {
     var listener: AddTaskPresentableListener? { get set }
     // TODO: Declare methods the interactor can invoke the presenter to present data.
 }
+//
+//protocol AddTaskListener: AnyObject {
+//    // TODO: Declare methods the interactor can invoke to communicate with other RIBs.
+//}
 
-protocol AddTaskListener: AnyObject {
-    // TODO: Declare methods the interactor can invoke to communicate with other RIBs.
-}
-
-final class AddTaskInteractor: PresentableInteractor<AddTaskPresentable>, AddTaskInteractable, AddTaskPresentableListener {
+final class AddTaskInteractor: PresentableInteractor<AddTaskPresentable>, AddTaskInteractable {
 
     weak var router: AddTaskRouting?
     weak var listener: AddTaskListener?
@@ -40,5 +40,15 @@ final class AddTaskInteractor: PresentableInteractor<AddTaskPresentable>, AddTas
     override func willResignActive() {
         super.willResignActive()
         // TODO: Pause any business logic.
+    }
+}
+
+extension AddTaskInteractor: AddTaskPresentableListener {
+    func didTapConfirm(with id: String, title: String, date: String, desc: String) {
+        
+    }
+    
+    func didTapClose() {
+        listener?.addTaskDidTapClose()
     }
 }

@@ -44,20 +44,5 @@ final class AppRootRouter: LaunchRouter<AppRootInteractable, AppRootViewControll
         ]
         
         viewController.setViewControllers(viewControllers)
-//        let tabOneRootRouting = tabOneHome.build(withListener: interactor)
-//        let tabTwoRootRouting = tabTwoHome.build(withListener: interactor)
-//        let tabThreeRootRouting = tabThreeHome.build(withListener: interactor)
-//
-//        attachChild(tabOneHomeRouting)
-//        attachChild(tabTwoHomeRouting)
-//        attachChild(tabThreeHomeRouting)
-//
-//        let viewControllers = [
-//          NavigationControllerable(root: tabOneHomeRouting.viewControllable),
-//          NavigationControllerable(root: tabTwoHomeRouting.viewControllable),
-//          NavigationControllerable(root: tabThreeHomeRouting.viewControllable),
-//        ]
-//
-//        viewController.setViewControllers(viewControllers)
     }
 }

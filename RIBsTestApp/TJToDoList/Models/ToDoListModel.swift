@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct ToDoListViewModel {
+struct ToDoListModel {
     let id: Int
     let title: String
     let desc: String

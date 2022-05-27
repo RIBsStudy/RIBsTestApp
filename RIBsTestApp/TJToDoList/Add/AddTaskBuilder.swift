@@ -19,9 +19,9 @@ final class AddTaskComponent: Component<AddTaskDependency> {
 
 // MARK: - Builder
 
-protocol AddTaskBuildable: Buildable {
-    func build(withListener listener: AddTaskListener) -> AddTaskRouting
-}
+//protocol AddTaskBuildable: Buildable {
+//    func build(withListener listener: AddTaskListener) -> AddTaskRouting
+//}
 
 final class AddTaskBuilder: Builder<AddTaskDependency>, AddTaskBuildable {
 
@@ -29,11 +29,15 @@ final class AddTaskBuilder: Builder<AddTaskDependency>, AddTaskBuildable {
         super.init(dependency: dependency)
     }
 
-    func build(withListener listener: AddTaskListener) -> AddTaskRouting {
+    func build(withListener listener: AddTaskListener, closeButtonType: DismissButtonType) -> ViewableRouting {
         let component = AddTaskComponent(dependency: dependency)
-        let viewController = AddTaskViewController()
+        let viewController = AddTaskViewController(closeButtonType: closeButtonType)
         let interactor = AddTaskInteractor(presenter: viewController)
         interactor.listener = listener
-        return AddTaskRouter(interactor: interactor, viewController: viewController)
+        
+        return AddTaskRouter(
+            interactor: interactor,
+            viewController: viewController
+        )
     }
 }

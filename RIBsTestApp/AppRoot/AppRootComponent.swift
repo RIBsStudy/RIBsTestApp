@@ -9,15 +9,26 @@ import Foundation
 import ModernRIBs
 
 final class AppRootComponent: Component<AppRootDependency>,
-                              TJToDoListDependency {
+                              TJToDoListDependency,
+                              AddTaskDependency,
+                              TopupDependency {
     
-  private let rootViewController: ViewControllable
+    lazy var addTaskBuildable: AddTaskBuildable = {
+      return AddTaskBuilder(dependency: self)
+    }()
+    
+    lazy var topupBuildable: TopupBuildable = {
+      return TopupBuilder(dependency: self)
+    }()
+    
+    var topupBaseViewController: ViewControllable { rootViewController.topViewControllable }
+    private let rootViewController: ViewControllable
   
-  init(
-    dependency: AppRootDependency,
-    rootViewController: ViewControllable
-  ) {
-    self.rootViewController = rootViewController
-    super.init(dependency: dependency)
-  }
+    init(
+        dependency: AppRootDependency,
+        rootViewController: ViewControllable
+    ) {
+        self.rootViewController = rootViewController
+        super.init(dependency: dependency)
+    }
 }

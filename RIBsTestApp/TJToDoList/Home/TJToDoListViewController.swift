@@ -13,6 +13,8 @@ protocol TJToDoListPresentableListener: AnyObject {
     // business logic, such as signIn(). This protocol is implemented by the corresponding
     // interactor class.
     func didTapClose()
+    func didTapTopup()
+    func didTapAddTask()
     func didSelectItem(at index: Int)
 }
 
@@ -32,7 +34,7 @@ final class TJToDoListViewController: UIViewController, TJToDoListPresentable, T
       setupViews()
     }
     
-    private var viewModels: [ToDoListViewModel] = []
+    private var models: [ToDoListModel] = []
     
     private lazy var tableView: UITableView = {
       let tableView = UITableView()
@@ -46,17 +48,16 @@ final class TJToDoListViewController: UIViewController, TJToDoListPresentable, T
       return tableView
     }()
     
-    private let addButtonItem = UIBarButtonItem(
-      barButtonSystemItem: .add,
-      target: nil,
-      action: nil
-    )
-    
     private func setupViews() {
         title = "홈"
         tabBarItem = UITabBarItem(title: "홈", image: UIImage(systemName: "house"), selectedImage: UIImage(systemName: "house.fill"))
         view.backgroundColor = .red
-        self.navigationItem.rightBarButtonItem = self.addButtonItem
+        self.navigationItem.rightBarButtonItem = UIBarButtonItem(
+            barButtonSystemItem: .add,
+            target: self,
+            action: #selector(didTapAddButton)
+        )
+        
         view.addSubview(tableView)
         
         NSLayoutConstraint.activate([
@@ -69,13 +70,13 @@ final class TJToDoListViewController: UIViewController, TJToDoListPresentable, T
     
     // MARK: - UITableView
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return viewModels.count + 1
+        return models.count + 1
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell: ToDoCell = tableView.dequeueReusableCell(for: indexPath)
 
-        if let viewModel = viewModels[safe: indexPath.row] {
+        if let viewModel = models[safe: indexPath.row] {
             cell.setTitle("\(viewModel.title)")
         } else {
             cell.setTitle("카드 추가")
@@ -88,6 +89,11 @@ final class TJToDoListViewController: UIViewController, TJToDoListPresentable, T
         tableView.deselectRow(at: indexPath, animated: true)
       
         listener?.didSelectItem(at: indexPath.row)
+    }
+    
+    @objc
+    private func didTapAddButton() {
+      listener?.didTapAddTask()
     }
     
     @objc
