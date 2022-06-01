@@ -31,12 +31,12 @@ final class AppRootBuilder: Builder<AppRootDependency>, AppRootBuildable {
         
         let interactor = AppRootInteractor(presenter: tabBar)
         
-        let tjToDoList = TJToDoListBuilder(dependency: component)
+        let jhTodo = JHTodoBuilder(dependency: component)
         
         let router = AppRootRouter(
             interactor: interactor,
             viewController: tabBar,
-            tjToDoList: tjToDoList
+            jhTodo: jhTodo
         )
         
         return router

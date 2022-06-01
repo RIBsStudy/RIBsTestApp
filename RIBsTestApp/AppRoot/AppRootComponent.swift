@@ -8,8 +8,7 @@
 import Foundation
 import ModernRIBs
 
-final class AppRootComponent: Component<AppRootDependency>,
-                              TJToDoListDependency {
+final class AppRootComponent: Component<AppRootDependency>, JHTodoDependency {
     
   private let rootViewController: ViewControllable
   
