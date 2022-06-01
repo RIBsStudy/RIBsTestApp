@@ -16,6 +16,9 @@
 		714B48D0283BC7CB00B08739 /* ImhoTodoNewItemViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 714B48CC283BC7CB00B08739 /* ImhoTodoNewItemViewController.swift */; };
 		714B48D1283BC7CB00B08739 /* ImhoTodoNewItemBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 714B48CD283BC7CB00B08739 /* ImhoTodoNewItemBuilder.swift */; };
 		714B48D2283BC7CB00B08739 /* ImhoTodoNewItemInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 714B48CE283BC7CB00B08739 /* ImhoTodoNewItemInteractor.swift */; };
+		7151B69E2847D557001E4D51 /* ImhoTodoListRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7151B69D2847D557001E4D51 /* ImhoTodoListRepository.swift */; };
+		7151B6A02847DC15001E4D51 /* Combine+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7151B69F2847DC15001E4D51 /* Combine+Utils.swift */; };
+		7151B6A32847DE41001E4D51 /* CombineExt in Frameworks */ = {isa = PBXBuildFile; productRef = 7151B6A22847DE41001E4D51 /* CombineExt */; };
 		71F8C733284045A000BB63E3 /* ImhoTodoItemDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71F8C732284045A000BB63E3 /* ImhoTodoItemDataModel.swift */; };
 		71F8C735284045D000BB63E3 /* ImhoTodoItemStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71F8C734284045D000BB63E3 /* ImhoTodoItemStatus.swift */; };
 		71F8C7372840462D00BB63E3 /* ImhoTodoItemPresentationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71F8C7362840462D00BB63E3 /* ImhoTodoItemPresentationModel.swift */; };
@@ -46,6 +49,8 @@
 		714B48CC283BC7CB00B08739 /* ImhoTodoNewItemViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImhoTodoNewItemViewController.swift; sourceTree = "<group>"; };
 		714B48CD283BC7CB00B08739 /* ImhoTodoNewItemBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImhoTodoNewItemBuilder.swift; sourceTree = "<group>"; };
 		714B48CE283BC7CB00B08739 /* ImhoTodoNewItemInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImhoTodoNewItemInteractor.swift; sourceTree = "<group>"; };
+		7151B69D2847D557001E4D51 /* ImhoTodoListRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImhoTodoListRepository.swift; sourceTree = "<group>"; };
+		7151B69F2847DC15001E4D51 /* Combine+Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Combine+Utils.swift"; sourceTree = "<group>"; };
 		71F8C732284045A000BB63E3 /* ImhoTodoItemDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImhoTodoItemDataModel.swift; sourceTree = "<group>"; };
 		71F8C734284045D000BB63E3 /* ImhoTodoItemStatus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImhoTodoItemStatus.swift; sourceTree = "<group>"; };
 		71F8C7362840462D00BB63E3 /* ImhoTodoItemPresentationModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImhoTodoItemPresentationModel.swift; sourceTree = "<group>"; };
@@ -72,6 +77,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7151B6A32847DE41001E4D51 /* CombineExt in Frameworks */,
 				71FF8C20282C8CD300B6DBD1 /* ModernRIBs in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -89,6 +95,7 @@
 				714B48BB283BBEDE00B08739 /* ImhoTodoHomeInteractor.swift */,
 				714B48C0283BC1BE00B08739 /* ImhoTodoListCell.swift */,
 				714B48C2283BC58100B08739 /* ImhoTodoNewItem */,
+				7151B69D2847D557001E4D51 /* ImhoTodoListRepository.swift */,
 			);
 			path = ImhoTodoHome;
 			sourceTree = "<group>";
@@ -189,6 +196,7 @@
 			isa = PBXGroup;
 			children = (
 				DD0A05672835077E00CF657E /* RIBs+Utils.swift */,
+				7151B69F2847DC15001E4D51 /* Combine+Utils.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -211,6 +219,7 @@
 			name = RIBsTestApp;
 			packageProductDependencies = (
 				71FF8C1F282C8CD300B6DBD1 /* ModernRIBs */,
+				7151B6A22847DE41001E4D51 /* CombineExt */,
 			);
 			productName = RIBsTestApp;
 			productReference = 71FF8C04282C891500B6DBD1 /* RIBsTestApp.app */;
@@ -242,6 +251,7 @@
 			mainGroup = 71FF8BFB282C891500B6DBD1;
 			packageReferences = (
 				71FF8C1E282C8CD300B6DBD1 /* XCRemoteSwiftPackageReference "ModernRIBs" */,
+				7151B6A12847DE41001E4D51 /* XCRemoteSwiftPackageReference "CombineExt" */,
 			);
 			productRefGroup = 71FF8C05282C891500B6DBD1 /* Products */;
 			projectDirPath = "";
@@ -269,6 +279,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7151B69E2847D557001E4D51 /* ImhoTodoListRepository.swift in Sources */,
 				714B48BE283BBEDE00B08739 /* ImhoTodoHomeBuilder.swift in Sources */,
 				71F8C733284045A000BB63E3 /* ImhoTodoItemDataModel.swift in Sources */,
 				71FF8C2B282C8EBC00B6DBD1 /* AppRootComponent.swift in Sources */,
@@ -281,6 +292,7 @@
 				DD0A05642835053400CF657E /* TJToDoListBuilder.swift in Sources */,
 				DD0A05632835053400CF657E /* TJToDoListViewController.swift in Sources */,
 				714B48D2283BC7CB00B08739 /* ImhoTodoNewItemInteractor.swift in Sources */,
+				7151B6A02847DC15001E4D51 /* Combine+Utils.swift in Sources */,
 				714B48CF283BC7CB00B08739 /* ImhoTodoNewItemRouter.swift in Sources */,
 				71FF8C29282C8E8E00B6DBD1 /* RootTabBarController.swift in Sources */,
 				71FF8C1D282C8C2000B6DBD1 /* AppComponent.swift in Sources */,
@@ -504,6 +516,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		7151B6A12847DE41001E4D51 /* XCRemoteSwiftPackageReference "CombineExt" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/CombineCommunity/CombineExt.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.0;
+			};
+		};
 		71FF8C1E282C8CD300B6DBD1 /* XCRemoteSwiftPackageReference "ModernRIBs" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/DevYeom/ModernRIBs";
@@ -515,6 +535,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		7151B6A22847DE41001E4D51 /* CombineExt */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 7151B6A12847DE41001E4D51 /* XCRemoteSwiftPackageReference "CombineExt" */;
+			productName = CombineExt;
+		};
 		71FF8C1F282C8CD300B6DBD1 /* ModernRIBs */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 71FF8C1E282C8CD300B6DBD1 /* XCRemoteSwiftPackageReference "ModernRIBs" */;

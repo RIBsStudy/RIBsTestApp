@@ -13,3 +13,12 @@ struct ImhoTodoItemPresentationModel {
     var date: String
     var status: ImhoTodoItemStatus
 }
+
+extension ImhoTodoItemPresentationModel {
+    init(dataModel: ImhoTodoItemDataModel, formatter: DateFormatter) {
+        title = dataModel.title
+        description = dataModel.description
+        date = formatter.string(from: dataModel.date)
+        status = dataModel.status
+    }
+}

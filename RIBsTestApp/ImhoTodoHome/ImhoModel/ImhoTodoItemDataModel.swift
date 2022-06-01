@@ -13,6 +13,10 @@ struct ImhoTodoItemDataModel {
     var description: String
     var date: Date
     var status: ImhoTodoItemStatus
+    
+    mutating func toggleStatus() {
+        status = status == .todo ? .done : .todo
+    }
 }
 
 

@@ -46,8 +46,8 @@ final class AppRootRouter: LaunchRouter<AppRootInteractable, AppRootViewControll
         attachChild(imhoTodoHomeRouting)
         
         let viewControllers = [
+            NavigationControllerable(root: imhoTodoHomeRouting.viewControllable),
             NavigationControllerable(root: tjToDoListRouting.viewControllable),
-            NavigationControllerable(root: imhoTodoHomeRouting.viewControllable)
         ]
         
         viewController.setViewControllers(viewControllers)

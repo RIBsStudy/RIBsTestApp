@@ -11,6 +11,8 @@ import UIKit
 final class ImhoTodoListCell: UITableViewCell {
     static let reuseIdentifier = String(describing: ImhoTodoListCell.classForCoder())
     
+    private weak var listener: ImhoTodoHomePresentableListener?
+    
     private lazy var contentStackView: UIStackView = {
         let stack = UIStackView()
         stack.translatesAutoresizingMaskIntoConstraints = false
@@ -60,6 +62,8 @@ final class ImhoTodoListCell: UITableViewCell {
         return label
     }()
     
+    private var index: Int?
+    
     required init?(coder: NSCoder) {
       super.init(coder: coder)
       setupViews()
@@ -71,20 +75,21 @@ final class ImhoTodoListCell: UITableViewCell {
     }
     
     func setupViews() {
-        layer.cornerRadius = 7
-        layer.borderColor = UIColor.systemGray6.cgColor
-        layer.borderWidth = 3.0
-        clipsToBounds = true
+        backgroundColor = UIColor.systemGray6
+        
+        contentView.layer.cornerRadius = 7
+        contentView.layer.borderColor = UIColor.systemGray6.cgColor
+        contentView.layer.borderWidth = 3.0
+        contentView.clipsToBounds = true
+        contentView.backgroundColor = .white
         
         contentStackView.addArrangedSubview(leftStackView)
-        contentStackView.addArrangedSubview(statusStackView)
+        contentStackView.addArrangedSubview(status)
         
         leftStackView.addArrangedSubview(title)
         leftStackView.addArrangedSubview(date)
         
-        statusStackView.addArrangedSubview(status)
-        
-        addSubview(contentStackView)
+        contentView.addSubview(contentStackView)
         
         NSLayoutConstraint.activate([
             contentStackView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 12),
@@ -92,13 +97,21 @@ final class ImhoTodoListCell: UITableViewCell {
             contentStackView.topAnchor.constraint(equalTo: topAnchor, constant: 10),
             contentStackView.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -10)
         ])
+        
+        status.isUserInteractionEnabled = true
+        status.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(didTapStatus(_:))))
     }
     
-    func configure(with data: ImhoTodoItemPresentationModel) {
-        title.text = data.title
-        date.text = data.date
-        configureStatusLabel(with: data.status)
-    }
+    func configure(
+        with data: ImhoTodoItemPresentationModel,
+        listener: ImhoTodoHomePresentableListener?,
+        index: Int) {
+            title.text = data.title
+            date.text = data.date
+            configureStatusLabel(with: data.status)
+            self.listener = listener
+            self.index = index
+        }
     
     func configureStatusLabel(with status: ImhoTodoItemStatus) {
         self.status.text = " \(status.text) "
@@ -108,5 +121,10 @@ final class ImhoTodoListCell: UITableViewCell {
         case .done:
             self.status.backgroundColor = .systemGreen
         }
+    }
+    
+    @objc
+    func didTapStatus(_ sender: UITapGestureRecognizer) {
+        listener?.changeStatus(at: index ?? 0)
     }
 }

@@ -9,21 +9,16 @@ import ModernRIBs
 import UIKit
 
 protocol ImhoTodoHomePresentableListener: AnyObject {
-    // TODO: Declare properties and methods that the view controller can invoke to perform
-    // business logic, such as signIn(). This protocol is implemented by the corresponding
-    // interactor class.
     func showNewItem()
+    func changeStatus(at index: Int)
+    func delete(at index: Int)
 }
 
 final class ImhoTodoHomeViewController: UIViewController,
                                         ImhoTodoHomePresentable,
                                         ImhoTodoHomeViewControllable {
     
-    private var items = [
-        ImhoTodoItemPresentationModel(title: "독서모임: 죽음의 수용소 읽기", description: "", date: "2022.5.27", status: .todo),
-        ImhoTodoItemPresentationModel(title: "Swift Expert 스터디: 챕터 2 읽기", description: "", date: "2022.5.25", status: .todo),
-        ImhoTodoItemPresentationModel(title: "RIBs 스터디: ToDo 앱 개발하기", description: "", date: "2022.5.23", status: .done)
-        ]
+    private var items: [ImhoTodoItemPresentationModel] = []
     
     private lazy var tableView: UITableView = {
         let tableView = UITableView()
@@ -73,14 +68,17 @@ final class ImhoTodoHomeViewController: UIViewController,
         ])
     }
     
-    func update(with item: ImhoTodoItemPresentationModel) {
-        items.append(item)
+    func update(with items: [ImhoTodoItemPresentationModel]) {
+        self.items = items
+        tableView.reloadData()
+    }
+    
+    func reload() {
         tableView.reloadData()
     }
     
     @objc
     private func addTodoItem() {
-        print("addTodoItem Tapped")
         listener?.showNewItem()
     }
 }
@@ -95,7 +93,11 @@ extension ImhoTodoHomeViewController: UITableViewDelegate, UITableViewDataSource
             return UITableViewCell()
         }
         
-        cell.configure(with: items[indexPath.row])
+        cell.configure(
+            with: items[indexPath.row],
+            listener: listener,
+            index: indexPath.row
+        )
         
         return cell
     }
@@ -103,4 +105,14 @@ extension ImhoTodoHomeViewController: UITableViewDelegate, UITableViewDataSource
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         70
     }
+    
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+
+        if editingStyle == .delete {
+            items.remove(at: indexPath.row)
+            tableView.deleteRows(at: [indexPath], with: .fade)
+            listener?.delete(at: indexPath.row)
+        }
+    }
+    
 }

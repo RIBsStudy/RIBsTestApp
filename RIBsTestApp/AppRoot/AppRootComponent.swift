@@ -11,14 +11,16 @@ import ModernRIBs
 final class AppRootComponent: Component<AppRootDependency>,
                               TJToDoListDependency,
                               ImhoTodoHomeDependency {
+    var imhoTodoListRepository: ImhoTodoListRepository
     
-  private let rootViewController: ViewControllable
-  
-  init(
-    dependency: AppRootDependency,
-    rootViewController: ViewControllable
-  ) {
-    self.rootViewController = rootViewController
-    super.init(dependency: dependency)
-  }
+    private let rootViewController: ViewControllable
+    
+    init(
+        dependency: AppRootDependency,
+        rootViewController: ViewControllable
+    ) {
+        self.rootViewController = rootViewController
+        self.imhoTodoListRepository = ImhoTodoListRepository()
+        super.init(dependency: dependency)
+    }
 }

@@ -7,21 +7,24 @@
 
 import ModernRIBs
 import Foundation
+import Combine
 
 protocol ImhoTodoHomeRouting: ViewableRouting {
-    // TODO: Declare methods the interactor can invoke to manage sub-tree via the router.
     func attachTodoNewItem()
     func detachTodoNewItem()
 }
 
 protocol ImhoTodoHomePresentable: Presentable {
     var listener: ImhoTodoHomePresentableListener? { get set }
-    // TODO: Declare methods the interactor can invoke the presenter to present data.
-    func update(with: ImhoTodoItemPresentationModel)
+    func update(with items: [ImhoTodoItemPresentationModel])
+    func reload()
 }
 
 protocol ImhoTodoHomeListener: AnyObject {
-    // TODO: Declare methods the interactor can invoke to communicate with other RIBs.
+}
+
+protocol ImhoTodoHomeInteractorDependency {
+    var imhoTodoListRepository: ImhoTodoListRepository { get }
 }
 
 final class ImhoTodoHomeInteractor: PresentableInteractor<ImhoTodoHomePresentable>,
@@ -30,22 +33,36 @@ final class ImhoTodoHomeInteractor: PresentableInteractor<ImhoTodoHomePresentabl
 
     weak var router: ImhoTodoHomeRouting?
     weak var listener: ImhoTodoHomeListener?
+    private var cancellables: Set<AnyCancellable>
+    
+    private let dependency: ImhoTodoHomeInteractorDependency
+    private lazy var dateFormatter: DateFormatter = {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "YYYY.MM.dd"
+        return dateFormatter
+    }()
 
-    // TODO: Add additional dependencies to constructor. Do not perform any logic
-    // in constructor.
-    override init(presenter: ImhoTodoHomePresentable) {
+    init(presenter: ImhoTodoHomePresentable, dependency: ImhoTodoHomeInteractorDependency) {
+        self.dependency = dependency
+        self.cancellables = .init()
         super.init(presenter: presenter)
         presenter.listener = self
     }
 
     override func didBecomeActive() {
         super.didBecomeActive()
-        // TODO: Implement business logic here.
+        
+        dependency.imhoTodoListRepository.list.sink { [weak self] listData in
+            let viewModels = listData.map {
+                ImhoTodoItemPresentationModel.init(dataModel: $0, formatter: self!.dateFormatter)
+            }
+            self?.presenter.update(with: viewModels)
+        }.store(in: &cancellables)
+        
     }
 
     override func willResignActive() {
         super.willResignActive()
-        // TODO: Pause any business logic.
     }
     
     func showNewItem() {
@@ -57,19 +74,23 @@ final class ImhoTodoHomeInteractor: PresentableInteractor<ImhoTodoHomePresentabl
             router?.detachTodoNewItem()
             return
         }
-
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "YYYY.MM.dd"
         
-        let dateString = dateFormatter.string(from: date)
-        
-        let data = ImhoTodoItemPresentationModel(
+        let data = ImhoTodoItemDataModel(
+            id: UUID().uuidString,
             title: title,
             description: description,
-            date: dateString, status: .todo
+            date: date,
+            status: .todo
         )
-        
-        presenter.update(with: data)
+        dependency.imhoTodoListRepository.add(data)
         router?.detachTodoNewItem()
+    }
+    
+    func changeStatus(at index: Int) {
+        dependency.imhoTodoListRepository.changeStatus(at: index)
+    }
+    
+    func delete(at index: Int) {
+        dependency.imhoTodoListRepository.delete(at: index)
     }
 }

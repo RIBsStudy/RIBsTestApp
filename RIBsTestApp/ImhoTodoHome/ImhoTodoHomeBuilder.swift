@@ -8,13 +8,13 @@
 import ModernRIBs
 
 protocol ImhoTodoHomeDependency: Dependency {
-    // TODO: Declare the set of dependencies required by this RIB, but cannot be
-    // created by this RIB.
+    var imhoTodoListRepository: ImhoTodoListRepository { get }
 }
 
-final class ImhoTodoHomeComponent: Component<ImhoTodoHomeDependency>, ImhoTodoNewItemDependency {
-
-    // TODO: Declare 'fileprivate' dependencies that are only used by this RIB.
+final class ImhoTodoHomeComponent: Component<ImhoTodoHomeDependency>,
+                                   ImhoTodoNewItemDependency,
+                                   ImhoTodoHomeInteractorDependency {
+    var imhoTodoListRepository: ImhoTodoListRepository { dependency.imhoTodoListRepository }
 }
 
 // MARK: - Builder
@@ -32,7 +32,10 @@ final class ImhoTodoHomeBuilder: Builder<ImhoTodoHomeDependency>, ImhoTodoHomeBu
     func build(withListener listener: ImhoTodoHomeListener) -> ImhoTodoHomeRouting {
         let component = ImhoTodoHomeComponent(dependency: dependency)
         let viewController = ImhoTodoHomeViewController()
-        let interactor = ImhoTodoHomeInteractor(presenter: viewController)
+        let interactor = ImhoTodoHomeInteractor(
+            presenter: viewController,
+            dependency: component
+        )
         interactor.listener = listener
         let todoNewItem = ImhoTodoNewItemBuilder(dependency: component)
         
